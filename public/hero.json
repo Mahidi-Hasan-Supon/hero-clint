@@ -1,0 +1,74 @@
+[
+  {
+    "serviceName": "Electric Repair",
+    "category": "Electrical",
+    "price": 1200,
+    "description": "Fix wiring issues, socket replacement, and electrical troubleshooting.",
+    "imageURL": "https://i.ibb.co.com/h1hzJR77/360-F-616419422-lxz-X74o-Y17uki-EE8-Snf-Am-Sabfc-Yk-Ycq-C.jpg",
+    "providerName": "Abdul Karim",
+    "email": "abdulkarim.electric@gmail.com"
+  },
+  {
+    "serviceName": "Plumbing Fix",
+    "category": "Plumbing",
+    "price": 1000,
+    "description": "Leak repair, pipe installation, and bathroom fittings service.",
+    "imageURL": "https://i.ibb.co.com/zVkmT54m/istockphoto-1440019701-612x612.jpg",
+    "providerName": "Shamim Hossain",
+    "email": "shamim.plumber@gmail.com"
+  },
+  {
+    "serviceName": "House Cleaning",
+    "category": "Cleaning",
+    "price": 800,
+    "description": "Deep cleaning for homes, kitchens, and bathrooms with eco-friendly products.",
+    "imageURL": "https://i.ibb.co.com/GvgzYLmS/cleaning-service.jpg",
+    "providerName": "Rina Akter",
+    "email": "rina.cleaningservice@gmail.com"
+  },
+  {
+    "serviceName": "AC Servicing",
+    "category": "Electronics",
+    "price": 1500,
+    "description": "AC cleaning, gas refill, and cooling performance check-up.",
+    "imageURL": "https://i.ibb.co.com/v6Ct66wx/hvac-technician-servicing-air-conditioner-unit-photo.jpg",
+    "providerName": "Sajid Rahman",
+    "email": "sajid.acservice@gmail.com"
+  },
+  {
+    "serviceName": "Carpentry Work",
+    "category": "Furniture",
+    "price": 2000,
+    "description": "Door, window, and furniture repair or customization.",
+    "imageURL": "https://i.ibb.co.com/hRr4vTwy/premium-photo-1664300494539-313eac2a6095.jpg",
+    "providerName": "Mahfuz Ahmed",
+    "email": "mahfuz.carpentry@gmail.com"
+  },
+  {
+    "serviceName": "Home Painting",
+    "category": "Painting",
+    "price": 2500,
+    "description": "Interior and exterior wall painting with professional finish.",
+    "imageURL": "https://i.ibb.co.com/GvgzYLmS/cleaning-service.jpg",
+    "providerName": "Faisal Islam",
+    "email": "faisal.paintpro@gmail.com"
+  },
+  {
+    "serviceName": "Gardening Service",
+    "category": "Outdoor",
+    "price": 700,
+    "description": "Lawn mowing, tree trimming, and garden maintenance.",
+    "imageURL": "https://i.ibb.co.com/YTqKMnG8/istockphoto-1166203849-612x612.jpg",
+    "providerName": "Tania Sultana",
+    "email": "tania.garden@gmail.com"
+  },
+  {
+    "serviceName": "Home Appliance Repair",
+    "category": "Repair",
+    "price": 1800,
+    "description": "Fixing washing machines, refrigerators, and other home appliances.",
+    "imageURL": "https://i.ibb.co.com/53X5P2b/istockphoto-2140183630-612x612.jpg",
+    "providerName": "Hasibul Alam",
+    "email": "hasib.repairtech@gmail.com"
+  }
+]
