@@ -1,7 +1,7 @@
 import React from "react";
 
 const HeroCard = ({ hero }) => {
-  console.log(hero);
+  // console.log(hero);
   const {
     category,description,email,imageURL,price,providerName,serviceName,
   } 
@@ -10,6 +10,7 @@ const HeroCard = ({ hero }) => {
 
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
+ 
       <figure>
         <img
           src={imageURL}

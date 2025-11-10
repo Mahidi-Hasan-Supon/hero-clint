@@ -10,7 +10,9 @@ import AuthProvider from "./context/AuthProvider.jsx";
 import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";
 import Home from "./pages/Home.jsx";
-import Service from "./pages/Service.jsx";
+import Services from "./pages/Services.jsx";
+
+
 
 const router = createBrowserRouter([
   {
@@ -20,16 +22,16 @@ const router = createBrowserRouter([
     {
       index:true,
       Component:Home,
-       loader:()=>fetch("http://localhost:3000/home")
+       loader:()=>fetch("http://localhost:3000/latest-home")
     },
     {
       path:'/home',
       Component:Home,
-      loader:()=>fetch("http://localhost:3000/home")
+      loader:()=>fetch("http://localhost:3000/latest-home")
     },
     {
-      path:'/service',
-      Component:Service
+      path:'services',
+      Component:Services
     },
     {
       path:'register',
