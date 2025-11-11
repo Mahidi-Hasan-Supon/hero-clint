@@ -22,12 +22,14 @@ const Navber = () => {
       <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services">Services</NavLink>
       </li>
-      <li>
+     { users && <div className="flex">
+        <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/mybookings">My Bookings</NavLink>
       </li>
       <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/addservice">Add Service</NavLink>
       </li>
+     </div> }
     </div>
   );
   return (

@@ -15,6 +15,7 @@ import ServicesDetails from "./pages/ServicesDetails.jsx";
 import MyBooking from "./pages/MyBooking.jsx";
 import AddService from "./pages/AddService.jsx";
 import PrivateRoute from "./route/PrivateRoute.jsx";
+import MyService from "./pages/MyService.jsx";
 
 
 
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
       path:'servicesdetails/:id',
       loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
       Component:ServicesDetails,
+    },
+    {
+      path:'myservice',
+      element:<PrivateRoute>
+        <MyService></MyService>
+      </PrivateRoute>,
     },
     {
       path:'addservice',

@@ -3,6 +3,42 @@ import React from "react";
 const AddService = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    const serviceName = e.target.serviceName.value;
+    const price = e.target.price.value;
+    const category = e.target.category.value;
+    const description = e.target.description.value;
+    const photo = e.target.image.value;
+    const email = e.target.email.value;
+    const providerName = e.target.providerName.value;
+    console.log(
+      serviceName,
+      category,
+      price,
+      description,
+      photo,
+      email,
+      providerName
+    );
+    const createService = {
+      serviceName: serviceName,
+      category: category,
+      price: price,
+      description: description,
+      imageURL: photo,
+      providerName: providerName,
+      email: email,
+    };
+    fetch("http://localhost:3000/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createService),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data post", data);
+      });
   };
   return (
     <div className="w-7xl mx-auto py-5">
@@ -17,24 +53,32 @@ const AddService = () => {
                 className="input"
                 placeholder="Service Name"
               />
+              <label className="label">Price</label>
+              <input
+                type="name"
+                name="price"
+                className="input"
+                placeholder="price"
+              />
               <label className="label">Category</label>
-              <select
-                defaultValue="category"
-                name="category"
-                className="select"
-              >
-                <option disabled={true}>Electrical</option>
-                <option>Electronics</option>
-                <option>Plumbing</option>
-                <option>Cleaning</option>
-                <option>Painting</option>
-                <option>Furniture</option>
-                <option>Repair</option>
-                <option>Outdoor</option>
-              </select>
 
+              <input
+                type="text"
+                name="category"
+                className="input"
+                placeholder="Which browser do you use"
+                list="browsers"
+              />
+              <datalist id="browsers">
+                <option value="Electrical"></option>
+                <option value="Electronics"></option>
+                <option value="Plumbing"></option>
+                <option value="Cleaning"></option>
+                <option value="Furniture"></option>
+                <option value="Outdoor"></option>
+              </datalist>
               <fieldset className="fieldset">
-                <legend className="fieldset-legend">Description,</legend>
+                <legend className="fieldset-legend">Description</legend>
                 <textarea
                   className="textarea h-24"
                   name="description"
@@ -66,7 +110,9 @@ const AddService = () => {
                 placeholder="Email"
               />
 
-              <button className="btn btn-neutral mt-4">Login</button>
+              <button type="submit" className="btn btn-primary mt-4">
+                Create A Service
+              </button>
             </fieldset>
           </form>
         </div>

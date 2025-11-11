@@ -32,6 +32,8 @@ const Register = () => {
     createUserWithEmailAndPasswordFunc(email, password)
       .then((res) => {
         console.log(res.user);
+          toast.success('Sign Up your account')
+          navigate('/')
         updateProfileFunc(displayName, photoURL)
           .then((res) => {
             console.log(res.user);
