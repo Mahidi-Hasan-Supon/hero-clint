@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import useImg from "../assets/user 1.png";
 import { ToastContainer } from "react-toastify";
@@ -17,10 +17,10 @@ const Navber = () => {
   const links = (
     <div className="flex">
       <li>
-        <Link to="/home">Home</Link>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/home">Home</NavLink>
       </li>
       <li>
-        <Link to="/services">Services</Link>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services">Services</NavLink>
       </li>
     </div>
   );
@@ -52,12 +52,12 @@ const Navber = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-md md:text-xl">HouseHold Services</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end gap-5">
+      <div className="navbar-end md:gap-5">
         {users ? (
           <div>
             <details className="dropdown">
@@ -80,7 +80,7 @@ const Navber = () => {
             SignOut
           </button>
         ) : (
-          <div>
+          <div className="flex gap-1 md:gap-3">
             <Link to="/login" className="btn">
               Login
             </Link>

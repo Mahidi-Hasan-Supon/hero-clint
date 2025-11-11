@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import HeroCard from "../compunents/HeroCard";
 import HeroSlider from "../compunents/HeroSlider";
 import ChoseUs from "../compunents/ChoseUs";
+import Testimonals from "../compunents/Testimonals";
 
 const Home = () => {
   const hero = useLoaderData();
@@ -29,16 +30,17 @@ const Home = () => {
 
 
       {/* why chose it */}
-      <div>
-          <h1 className="text-primary font-semibold text-sm">-Our Services</h1>
+      <div className="space-y-8 my-10">
+          <span className="text-primary font-semibold text-sm">-Our Services</span>
+          <h1 className="text-3xl font-bold opacity-80">What We Do For Our Customers</h1>
           <span>
             <ChoseUs></ChoseUs>
           </span>
       </div>
 
       {/* 2nd section */}
-      <div>
-        
+      <div className="my-20">
+         <Testimonals></Testimonals>
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import Login from "./pages/Login.jsx";
 import Profile from "./pages/Profile.jsx";
 import Home from "./pages/Home.jsx";
 import Services from "./pages/Services.jsx";
+import ServicesDetails from "./pages/ServicesDetails.jsx";
 
 
 
@@ -31,7 +32,13 @@ const router = createBrowserRouter([
     },
     {
       path:'services',
-      Component:Services
+      Component:Services,
+      loader:()=>fetch("http://localhost:3000/services")
+    },
+    {
+      path:'servicesdetails/:id',
+      Component:ServicesDetails,
+
     },
     {
       path:'register',

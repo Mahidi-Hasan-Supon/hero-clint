@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router";
 
 const HeroCard = ({ hero }) => {
   // console.log(hero);
   const {
-    category,description,email,imageURL,price,providerName,serviceName,
+    category,description,email,imageURL,price,providerName,serviceName,_id
   } 
   =
    hero;
@@ -32,6 +33,7 @@ const HeroCard = ({ hero }) => {
           <div className="text-[#00aeef] border rounded-2xl p-1 font-semibold">{serviceName} : <span className="font-bold">{providerName}</span></div>
           {/* <div className="text-[#00aeef] border rounded-2xl p-1 font-semibold">{providerName}</div> */}
         </div>
+        <Link to={`/servicesdetails/${_id}`} className="btn mt-3 btn-primary">View Details</Link>
       </div>
     </div>
   );

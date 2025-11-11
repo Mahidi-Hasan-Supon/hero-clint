@@ -8,20 +8,26 @@ import { auth } from '../firebase/firebase.init';
 const googleProvider = new GoogleAuthProvider()
 const AuthProvider = ({children}) => {
     const [users,setUsers] = useState(null)
+    const [loading,setLoading] = useState(true)
 
     const createUserWithEmailAndPasswordFunc=(email,password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
     const signInWithEmailAndPasswordFunc=(email,password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     const signOutFunc=(email,password)=>{
+        setLoading(true)
         return signOut(auth,email,password)
     }
     const signInWithPopupFunc=()=>{
+        setLoading(true)
         return signInWithPopup(auth,googleProvider)
     }
     const updateProfileFunc=(displayName,photoURL)=>{
+        setLoading(true)
         return updateProfile(auth.currentUser,{
             displayName,
             photoURL
@@ -30,6 +36,7 @@ const AuthProvider = ({children}) => {
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
       setUsers(currentUser)
+      setLoading(false)
     })
     return ()=>{
         unsubscribe()
@@ -44,6 +51,8 @@ const AuthProvider = ({children}) => {
       signOutFunc,
       signInWithPopupFunc,
       updateProfileFunc,
+      loading,
+      setLoading,
 
     }
     return (
