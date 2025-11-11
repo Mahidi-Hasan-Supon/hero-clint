@@ -22,6 +22,9 @@ const Navber = () => {
       <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services">Services</NavLink>
       </li>
+      <li>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/mybookings">My Bookings</NavLink>
+      </li>
     </div>
   );
   return (
@@ -61,9 +64,9 @@ const Navber = () => {
         {users ? (
           <div>
             <details className="dropdown">
-              <summary className="btn m-1">
+              <summary className="btn rounded-4xl m-1">
                 {" "}
-                <img src={users.photoURL} alt="" />
+                <img src={users.photoURL} className="h-[40px] w-[40px] rounded-3xl" alt="" />
               </summary>
               <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                 <li>

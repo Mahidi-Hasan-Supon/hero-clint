@@ -12,6 +12,7 @@ import Profile from "./pages/Profile.jsx";
 import Home from "./pages/Home.jsx";
 import Services from "./pages/Services.jsx";
 import ServicesDetails from "./pages/ServicesDetails.jsx";
+import MyBooking from "./pages/MyBooking.jsx";
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
       Component:ServicesDetails,
 
+    },
+    {
+      path:'mybookings',
+      Component:MyBooking
     },
     {
       path:'register',

@@ -1,9 +1,10 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { use, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 const Register = () => {
+  const navigate = useNavigate()
   const [error, setError] = useState("");
   const {
     createUserWithEmailAndPasswordFunc,
@@ -36,6 +37,7 @@ const Register = () => {
             console.log(res.user);
             setUsers(null);
             toast.success('Sign Up your account')
+            navigate('/home')
           })
           .catch((e) => {
             console.log(e.message);
@@ -51,6 +53,7 @@ const Register = () => {
       .then((res) => {
         console.log(res.user);
         toast.success('Sign Up your account')
+        navigate('/home')
       })
       .catch((e) => {
         console.log(e);
@@ -62,13 +65,6 @@ const Register = () => {
       <div className="card-body">
         <h1 className="text-5xl font-bold">Register now!</h1>
 
-        {users ? (
-          <div>
-            <h1>{users.displayName}</h1>
-            <img src={users.photoURL} alt="" />
-            <h1>{users.email}</h1>
-          </div>
-        ) : (
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
               <label className="label">Name</label>
@@ -106,7 +102,6 @@ const Register = () => {
             </fieldset>
             <div></div>
           </form>
-        )}
         <div className="flex items-center text-center">
           <p className="border-t border-gray-300"></p>
           <p>Or</p>
