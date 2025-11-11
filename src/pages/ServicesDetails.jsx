@@ -1,21 +1,31 @@
 import React from "react";
+import { useLoaderData } from "react-router";
 
 const ServicesDetails = () => {
+  const details = useLoaderData();
+  const detail = details.result;
+  console.log(detail);
   return (
-    <div className="max-w-7xl mx-auto py-40">
-      <div className="card card-side h-[300px] w-96 mx-auto bg-base-100 shadow-sm ">
-        <figure>
+    <div className=" w-7xl mx-auto py-50 border border-amber-200">
+      <div className="flex gap-20">
+        <div className="">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            alt="Movie"
+            src={detail.imageURL}
+            className="h-full w-[600px] rounded-lg shadow-2xl"
           />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">New movie is released!</h2>
-          <p>Click the button to watch on Jetflix app.</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Watch</button>
+         
           </div>
+          <div className="space-y-4">
+            <h1 className="text-5xl font-bold opacity-85">{detail.category}</h1>
+              <p className="text-xl font-semibold mt-5 opacity-80">{detail.description}</p>
+              <div className="text-[#00aeef] text-xl font-semibold">ProviderName: {detail.providerName}</div>
+              <div className="text-[#00aeef] text-xl font-semibold">serviceName: {detail.serviceName}</div>
+              <div className="border-t border-gray-200"></div>
+            <div className="flex gap-4">
+              <button className="btn btn-primary text-xl font-bold">price: $ {detail.price}</button>
+             
+            <button className="btn btn-primary text-xl font-bold">Book Now</button>
+            </div>
         </div>
       </div>
     </div>
