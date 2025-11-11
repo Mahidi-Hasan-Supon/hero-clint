@@ -13,6 +13,8 @@ import Home from "./pages/Home.jsx";
 import Services from "./pages/Services.jsx";
 import ServicesDetails from "./pages/ServicesDetails.jsx";
 import MyBooking from "./pages/MyBooking.jsx";
+import AddService from "./pages/AddService.jsx";
+import PrivateRoute from "./route/PrivateRoute.jsx";
 
 
 
@@ -40,11 +42,18 @@ const router = createBrowserRouter([
       path:'servicesdetails/:id',
       loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
       Component:ServicesDetails,
-
+    },
+    {
+      path:'addservice',
+      element:<PrivateRoute>
+        <AddService></AddService>
+      </PrivateRoute>,
     },
     {
       path:'mybookings',
-      Component:MyBooking
+      element:<PrivateRoute>
+        <MyBooking></MyBooking>
+      </PrivateRoute>
     },
     {
       path:'register',

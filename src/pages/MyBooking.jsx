@@ -54,6 +54,7 @@ const MyBooking = () => {
           <tr>
             <th>#</th>
             <th>Email</th>
+            <th>serviceName</th>
             <th>Booking Date</th>
             <th>Price</th>
             <th>Action</th>
@@ -76,6 +77,7 @@ const MyBooking = () => {
                   </div>
                 </div>
               </td>
+              <td>{book.serviceName}</td>
               <td>{book.date}</td>
               <td>{book.price}</td>
               <th>

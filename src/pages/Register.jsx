@@ -37,7 +37,7 @@ const Register = () => {
             console.log(res.user);
             setUsers(null);
             toast.success('Sign Up your account')
-            navigate('/home')
+            navigate('/')
           })
           .catch((e) => {
             console.log(e.message);
@@ -53,7 +53,7 @@ const Register = () => {
       .then((res) => {
         console.log(res.user);
         toast.success('Sign Up your account')
-        navigate('/home')
+        navigate('/')
       })
       .catch((e) => {
         console.log(e);

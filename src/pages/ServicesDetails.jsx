@@ -22,7 +22,9 @@ const ServicesDetails = () => {
     const bookingUser ={
       service:serviceId,
       user_email:email, 
-      date:bookingDate,
+      date:new Date(),
+      price:detail.price,
+      serviceName:detail.serviceName
     }
     fetch('http://localhost:3000/books',{
        method:"POST",
