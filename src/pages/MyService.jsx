@@ -1,5 +1,7 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router";
+import { toast } from "react-toastify";
 
 const MyService = () => {
   const { users } = use(AuthContext);
@@ -15,6 +17,19 @@ const MyService = () => {
       });
     }
   }, [users?.email]);
+  const handleDelete=(id)=>{
+    console.log('delete');
+    fetch(`http://localhost:3000/service/${id}`,{
+      method:"DELETE",
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+        setMyBooks(myBooks.filter(book=>book._id!==id))
+        toast("Delete service")
+    })
+
+  }
   return (
     <div className="overflow-x-auto md:w-7xl mx-auto py-20">
         <h1>{myBooks.length}</h1>
@@ -65,9 +80,9 @@ const MyService = () => {
               </span>
             </td>
             <td>{book.price}</td>
-            <th className="space-y-2">
-              <button className="btn btn-primary mr-2">Update</button>
-              <button className="btn btn-secondary">Delete</button>
+            <th className="space-y-2 flex gap-2">
+              <Link to={`/update/${book._id}`} className="btn btn-primary">Update</Link>
+              <button onClick={()=>handleDelete(book._id)} className="btn btn-secondary">Delete</button>
             </th>
           </tr>
         ))

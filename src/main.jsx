@@ -16,6 +16,7 @@ import MyBooking from "./pages/MyBooking.jsx";
 import AddService from "./pages/AddService.jsx";
 import PrivateRoute from "./route/PrivateRoute.jsx";
 import MyService from "./pages/MyService.jsx";
+import Update from "./compunents/Update.jsx";
 
 
 
@@ -42,7 +43,9 @@ const router = createBrowserRouter([
     {
       path:'servicesdetails/:id',
       loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
-      Component:ServicesDetails,
+      element:<PrivateRoute>
+        <ServicesDetails></ServicesDetails>
+      </PrivateRoute>,
     },
     {
       path:'myservice',
@@ -61,6 +64,11 @@ const router = createBrowserRouter([
       element:<PrivateRoute>
         <MyBooking></MyBooking>
       </PrivateRoute>
+    },
+    {
+      path:'/update/:id',
+      Component:Update,
+       loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
     },
     {
       path:'register',
