@@ -47,7 +47,12 @@ const MyBooking = () => {
     });
   };
   return (
-    <div className="overflow-x-auto md:w-7xl mx-auto py-30">
+   <div className="overflow-x-auto md:w-7xl mx-auto py-30">
+      { books.length === 0? 
+       <div>
+        <p className="text-center text-gray-500 text-lg py-30">No bookings found.</p>
+       </div>
+       : 
       <table className="table">
         {/* head */}
         <thead>
@@ -91,7 +96,7 @@ const MyBooking = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table>}
     </div>
   );
 };

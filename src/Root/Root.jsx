@@ -1,16 +1,25 @@
-import React from 'react';
-import Navber from '../compunents/Navber';
-import Footer from '../compunents/Footer';
-import { Outlet } from 'react-router';
+import React, { use } from "react";
+import Navber from "../compunents/Navber";
+import Footer from "../compunents/Footer";
+import { Outlet } from "react-router";
+import { AuthContext } from "../context/AuthContext";
+import Loading from "../compunents/Loading";
 
 const Root = () => {
-    return (
-        <div>
-            <Navber></Navber>
-            <Outlet></Outlet>
-            <Footer></Footer>
-        </div>
-    );
+    const {loading} = use(AuthContext)
+  return (
+    <div>
+      <Navber></Navber>
+      <main className="min-h-[calc(100vh-285px)]">
+       { loading
+       ?
+       <Loading></Loading>
+       :
+       <Outlet></Outlet>}
+      </main>
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default Root;

@@ -17,6 +17,11 @@ import AddService from "./pages/AddService.jsx";
 import PrivateRoute from "./route/PrivateRoute.jsx";
 import MyService from "./pages/MyService.jsx";
 import Update from "./compunents/Update.jsx";
+import Loading from "./compunents/Loading.jsx";
+import ErrorPage from "./compunents/ErrorPage.jsx";
+import UpdateProfile from "./compunents/UpdateProfile.jsx";
+
+
 
 
 
@@ -24,6 +29,8 @@ const router = createBrowserRouter([
   {
     path: "/",
    Component:Root,
+   hydrateFallbackElement:<Loading></Loading>,
+   errorElement:<ErrorPage></ErrorPage>,
    children:[
     {
       index:true,
@@ -80,7 +87,15 @@ const router = createBrowserRouter([
     },
     {
       path:'profile',
-      Component:Profile
+      element:<PrivateRoute>
+        <Profile></Profile>
+      </PrivateRoute>
+    },
+    {
+      path:'updateprofile',
+      element:<PrivateRoute>
+        <UpdateProfile></UpdateProfile>
+      </PrivateRoute>
     },
    ]
   }

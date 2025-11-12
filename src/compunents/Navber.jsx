@@ -3,6 +3,11 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import useImg from "../assets/user 1.png";
 import { ToastContainer } from "react-toastify";
+import { CgProfile } from "react-icons/cg";
+import { FaHome } from "react-icons/fa";
+import { GiAutoRepair, GiTargetDummy } from "react-icons/gi";
+import { TbBrandBooking } from "react-icons/tb";
+import { MdOutlineAddAlarm } from "react-icons/md";
 const Navber = () => {
   const { users, setUsers, signOutFunc } = use(AuthContext);
   const handleSignOut = () => {
@@ -15,22 +20,22 @@ const Navber = () => {
       });
   };
   const links = (
-    <div className="flex">
+    <div className="md:flex">
       <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/home">Home</NavLink>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/home"><FaHome></FaHome> Home</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services">Services</NavLink>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services"> <GiAutoRepair></GiAutoRepair> Services</NavLink>
       </li>
-     { users && <div className="flex">
+     { users && <div className="md:flex">
         <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/mybookings">My Bookings</NavLink>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/mybookings"><TbBrandBooking></TbBrandBooking> My Bookings</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/addservice">Add Service</NavLink>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/addservice"><MdOutlineAddAlarm></MdOutlineAddAlarm> Add Service</NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/myservice">My Services</NavLink>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/myservice"><GiTargetDummy></GiTargetDummy> My Services</NavLink>
       </li>
      </div> }
     </div>
@@ -60,7 +65,9 @@ const Navber = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            {links}
+          <div className="flex-none">
+              {links}
+          </div>
           </ul>
         </div>
         <a className="btn btn-ghost text-md md:text-xl">HouseHold Services</a>
@@ -78,7 +85,7 @@ const Navber = () => {
               </summary>
               <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                 <li>
-                  <Link to='/profile'>Profile</Link>
+                  <Link to='/profile'> <CgProfile></CgProfile> Profile</Link>
                 </li>
               </ul>
             </details>
