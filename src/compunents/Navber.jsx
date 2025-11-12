@@ -29,6 +29,9 @@ const Navber = () => {
       <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/addservice">Add Service</NavLink>
       </li>
+      <li>
+        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/myservice">My Services</NavLink>
+      </li>
      </div> }
     </div>
   );

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { use, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const AddService = () => {
+  const {users} = use(AuthContext)
   const handleSubmit = (e) => {
     e.preventDefault();
     const serviceName = e.target.serviceName.value;
@@ -41,7 +43,7 @@ const AddService = () => {
       });
   };
   return (
-    <div className="w-7xl mx-auto py-5">
+    <div className="md:w-7xl mx-auto py-5">
       <div className="card bg-base-100 w-96 mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <form onSubmit={handleSubmit}>
@@ -107,6 +109,7 @@ const AddService = () => {
                 type="email"
                 name="email"
                 className="input"
+                defaultValue={users.email}
                 placeholder="Email"
               />
 
