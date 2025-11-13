@@ -161,14 +161,14 @@ const handleReviews =(e)=>{
         </div>
       </div>
       {/* ⭐⭐ Review Section */} 
-      <div className="border-t w-5xl mx-auto border-gray-200 mt-10  pt-5">
+      <div className="md:border-t md:w-5xl mx-auto border-gray-200 mt-10  pt-5">
 
     
       <div className="">
-        <h2 className="text-3xl text-center font-bold mb-5">Customer Reviews</h2>
+        <h2 className="text-3xl md:text-center font-bold mb-5">Customer Reviews</h2>
 
         {/* Review Form */}
-          <div className="flex gap-20 w-xl mx-auto">
+          <div className="md:flex md:gap-20 md:w-xl mx-auto">
         <form onSubmit={handleReviews}>
 
 
@@ -179,7 +179,7 @@ const handleReviews =(e)=>{
               name="rating"
               min="1"
               max="5"
-              className="input input-bordered w-[300px]"
+              className="input input-bordered md:w-[300px]"
               required
             />
 
@@ -201,7 +201,7 @@ const handleReviews =(e)=>{
          <h1 className="text-xl font-semibold"> Your review</h1>
           {reviews?.length > 0 ? (
             reviews.map((r, i) => (
-              <div key={i} className="border bg-white border-amber-50 p-3 my-2 rounded-md">
+              <div key={i} className="border w-[300px] bg-white border-amber-50 p-3 my-2 rounded-md">
                 <p className="font-semibold text-blue-500">{r.user}</p>
                 <p>⭐ {r.rating}</p>
                 <p>{r.comment}</p>

@@ -43,6 +43,7 @@ const Register = () => {
             console.log(res.user);
             setUsers(null);
             toast.success("Sign Up your account");
+            setTimeout(() => navigate("/"), 1500);
             navigate("/");
           })
           .catch((e) => {

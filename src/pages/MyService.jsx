@@ -65,6 +65,7 @@ const MyService = () => {
                 <div className="avatar">
                   <div className="mask mask-squircle h-12 w-12">
                     <img
+                
                       src={book.imageURL}
                       alt="Avatar Tailwind CSS Component"
                     />

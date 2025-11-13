@@ -38,7 +38,7 @@ const Home = () => {
 
       {/* Top Rated Services Section */}
       <div className="py-20">
-        <h1 className="md:text-4xl text-2xl font-bold text-center mb-10">
+        <h1 className="md:text-4xl text-2xl font-bold md:text-center mb-10">
            Top Rated <span className="text-orange-400">Services</span>
         </h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
