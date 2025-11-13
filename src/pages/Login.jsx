@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { signInWithPopupFunc, signInWithEmailAndPasswordFunc } =
+  const { signInWithPopupFunc, signInWithEmailAndPasswordFunc,setLoading } =
     use(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ const Login = () => {
       .catch((e) => {
         console.log(e.message);
         toast.error(e.message);
+        setLoading(false)
       });
   };
   const handleGoogle = () => {

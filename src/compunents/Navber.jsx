@@ -2,21 +2,24 @@ import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import useImg from "../assets/user 1.png";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
 import { GiAutoRepair, GiTargetDummy } from "react-icons/gi";
 import { TbBrandBooking } from "react-icons/tb";
 import { MdOutlineAddAlarm } from "react-icons/md";
 const Navber = () => {
-  const { users, setUsers, signOutFunc } = use(AuthContext);
+  const { users, setUsers, signOutFunc, } = use(AuthContext);
   const handleSignOut = () => {
     signOutFunc()
       .then((res) => {
         console.log(res.user);
+
+        toast.success('Sign out successfully')
       })
       .cath((e) => {
         console.log(e.message);
+        toast.error(e.message)
       });
   };
     const [theme,setTheme] = useState(localStorage.getItem('theme') || 'light')
@@ -49,7 +52,7 @@ const Navber = () => {
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/myservice"><GiTargetDummy></GiTargetDummy> My Services</NavLink>
       </li>
 
-      <input onChange={(e)=>handleTheme(e.target.checked)} type="checkbox" value="synthwave" className="toggle theme-controller" />
+   
      </div>  
       
      }
@@ -85,7 +88,7 @@ const Navber = () => {
           </div>
           </ul>
         </div>
-        <a className="btn btn-ghost text-md md:text-xl">HouseHold Services</a>
+        <a className="md:btn btn-ghost text-lg md:text-xl">HouseHold Services</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -110,9 +113,13 @@ const Navber = () => {
           <img src={useImg} alt="" />
         )}
         {users ? (
+   
+
           <button onClick={handleSignOut} className="btn">
             SignOut
           </button>
+             
+ 
         ) : (
           <div className="flex gap-1 md:gap-3">
             <Link to="/login" className="btn">
@@ -123,6 +130,7 @@ const Navber = () => {
             </Link>
           </div>
         )}
+        <input onChange={(e)=>handleTheme(e.target.checked)} type="checkbox" value="synthwave" className="toggle theme-controller ml-1" />
       </div>
       <ToastContainer></ToastContainer>
     </div>
