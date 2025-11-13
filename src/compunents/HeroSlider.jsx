@@ -10,12 +10,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const sliderPromise =fetch("http://localhost:3000/slider-home")
-.then(res=>res.json())
+const sliderPromise = fetch(
+  "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/slider-home"
+).then((res) => res.json());
 const HeroSlider = () => {
-  const sliders = use(sliderPromise)
+  const sliders = use(sliderPromise);
   console.log(sliders.result);
-  const slides = sliders.result
+  const slides = sliders.result;
   // const slides = [
   //   {
   //     id: 1,
@@ -37,7 +38,6 @@ const HeroSlider = () => {
   //   },
   // ];
 
-  
   return (
     <div className="md:w-full w-[400px] md:h-[80vh] h-[60vh]">
       <Swiper
@@ -52,20 +52,22 @@ const HeroSlider = () => {
           <SwiperSlide key={slide.id}>
             <div
               className="relative md:w-full w-[400px] h-full flex items-center justify-center bg-cover bg-center"
-               style={{ backgroundImage: `url('${slide.imageURL}')` }}
+              style={{ backgroundImage: `url('${slide.imageURL}')` }}
             >
               {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
               <div className="relative z-10 text-center text-white px-4">
                 <h2 className="text-4xl font-bold mb-3">{slide.category}</h2>
-                <p className="text-lg mb-5 max-w-xl mx-auto">{slide.description}</p>
-               <p>
-                 <Link 
-                   to='/services'
-                     className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition"
-                >
-                  Explore
-                </Link>
-               </p>
+                <p className="text-lg mb-5 max-w-xl mx-auto">
+                  {slide.description}
+                </p>
+                <p>
+                  <Link
+                    to="/services"
+                    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition"
+                  >
+                    Explore
+                  </Link>
+                </p>
               </div>
             </div>
           </SwiperSlide>
@@ -76,16 +78,6 @@ const HeroSlider = () => {
 };
 
 export default HeroSlider;
-
-
-
-
-
-
-
-
-
-
 
 // 2nd
 

@@ -21,84 +21,107 @@ import Loading from "./compunents/Loading.jsx";
 import ErrorPage from "./compunents/ErrorPage.jsx";
 import UpdateProfile from "./compunents/UpdateProfile.jsx";
 
-
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",
-   Component:Root,
-   hydrateFallbackElement:<Loading></Loading>,
-   errorElement:<ErrorPage></ErrorPage>,
-   children:[
-    {
-      index:true,
-      Component:Home,
-       loader:()=>fetch("http://localhost:3000/latest-home")
-    },
-    {
-      path:'/home',
-      Component:Home,
-      loader:()=>fetch("http://localhost:3000/latest-home")
-    },
-    {
-      path:'services',
-      Component:Services,
-      loader:()=>fetch("http://localhost:3000/services")
-    },
-    {
-      path:'servicesdetails/:id',
-      loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
-      element:<PrivateRoute>
-        <ServicesDetails></ServicesDetails>
-      </PrivateRoute>,
-    },
-    {
-      path:'myservice',
-      element:<PrivateRoute>
-        <MyService></MyService>
-      </PrivateRoute>,
-    },
-    {
-      path:'addservice',
-      element:<PrivateRoute>
-        <AddService></AddService>
-      </PrivateRoute>,
-    },
-    {
-      path:'mybookings',
-      element:<PrivateRoute>
-        <MyBooking></MyBooking>
-      </PrivateRoute>
-    },
-    {
-      path:'/update/:id',
-      Component:Update,
-       loader:({params})=>fetch(`http://localhost:3000/servicesdetails/${params.id}`),
-    },
-    {
-      path:'register',
-      Component:Register
-    },
-    {
-      path:'login',
-      Component:Login
-    },
-    {
-      path:'profile',
-      element:<PrivateRoute>
-        <Profile></Profile>
-      </PrivateRoute>
-    },
-    {
-      path:'updateprofile',
-      element:<PrivateRoute>
-        <UpdateProfile></UpdateProfile>
-      </PrivateRoute>
-    },
-   ]
-  }
+    Component: Root,
+    hydrateFallbackElement: <Loading></Loading>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        Component: Home,
+        loader: () =>
+          fetch(
+            "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/latest-home"
+          ),
+      },
+      {
+        path: "/home",
+        Component: Home,
+        loader: () =>
+          fetch(
+            "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/latest-home"
+          ),
+      },
+      {
+        path: "services",
+        Component: Services,
+        loader: () =>
+          fetch(
+            "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services"
+          ),
+      },
+      {
+        path: "servicesdetails/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/servicesdetails/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <ServicesDetails></ServicesDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myservice",
+        element: (
+          <PrivateRoute>
+            <MyService></MyService>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "addservice",
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "mybookings",
+        element: (
+          <PrivateRoute>
+            <MyBooking></MyBooking>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        Component: Update,
+        loader: ({ params }) =>
+          fetch(
+            `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/servicesdetails/${params.id}`
+          ),
+      },
+      {
+        path: "register",
+        Component: Register,
+      },
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "updateprofile",
+        element: (
+          <PrivateRoute>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
+      },
+    ],
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

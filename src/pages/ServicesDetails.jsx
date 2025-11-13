@@ -30,13 +30,16 @@ const ServicesDetails = () => {
       price: detail.price,
       serviceName: detail.serviceName,
     };
-    fetch("http://localhost:3000/books", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookingUser),
-    })
+    fetch(
+      "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/books",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(bookingUser),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
@@ -48,36 +51,44 @@ const ServicesDetails = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/services/${serviceId}/reviews`)
+    fetch(
+      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services/${serviceId}/reviews`
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, [serviceId]);
-const handleReviews =(e)=>{
+  const handleReviews = (e) => {
     e.preventDefault();
-            const rating = e.target.rating.value;
-            const comment = e.target.comment.value;
-            const review = {
-              user: users.email,
-              rating: parseInt(rating),
-              comment,
-              date: new Date(),
-            };
+    const rating = e.target.rating.value;
+    const comment = e.target.comment.value;
+    const review = {
+      user: users.email,
+      rating: parseInt(rating),
+      comment,
+      date: new Date(),
+    };
 
-            fetch(`http://localhost:3000/services/${serviceId}/review`, {
-              method: "POST",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify(review),
-            })
-              .then((res) => res.json())
-              .then(() => {
-                toast.success("Review added!");
-                e.target.reset();
-                // reload reviews
-                fetch(`http://localhost:3000/services/${serviceId}/reviews`)
-                  .then((res) => res.json())
-                  .then((data) => setReviews(data));
-              })};
-          
+    fetch(
+      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services/${serviceId}/review`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(review),
+      }
+    )
+      .then((res) => res.json())
+      .then(() => {
+        toast.success("Review added!");
+        e.target.reset();
+        // reload reviews
+        fetch(
+          `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services/${serviceId}/reviews`
+        )
+          .then((res) => res.json())
+          .then((data) => setReviews(data));
+      });
+  };
+
   return (
     <div className=" w-7xl mx-auto py-50">
       <div className="md:flex gap-20">
@@ -160,65 +171,66 @@ const handleReviews =(e)=>{
           </div>
         </div>
       </div>
-      {/* ⭐⭐ Review Section */} 
+      {/* ⭐⭐ Review Section */}
       <div className="md:border-t md:w-5xl mx-auto border-gray-200 mt-10  pt-5">
+        <div className="">
+          <h2 className="text-3xl md:text-center font-bold mb-5">
+            Customer Reviews
+          </h2>
 
-    
-      <div className="">
-        <h2 className="text-3xl md:text-center font-bold mb-5">Customer Reviews</h2>
-
-        {/* Review Form */}
+          {/* Review Form */}
           <div className="md:flex md:gap-20 md:w-xl mx-auto">
-        <form onSubmit={handleReviews}>
+            <form onSubmit={handleReviews}>
+              <div className="flex flex-col gap-3 mb-5">
+                <label className="font-semibold">Rating (1-5)</label>
+                <input
+                  type="number"
+                  name="rating"
+                  min="1"
+                  max="5"
+                  className="input input-bordered md:w-[300px]"
+                  required
+                />
 
-
-          <div className="flex flex-col gap-3 mb-5">
-            <label className="font-semibold">Rating (1-5)</label>
-            <input
-              type="number"
-              name="rating"
-              min="1"
-              max="5"
-              className="input input-bordered md:w-[300px]"
-              required
-            />
-
-            <label className="font-semibold">Your Review</label>
-            <textarea
-              name="comment"
-              placeholder="Write your feedback..."
-              className="textarea textarea-bordered"
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit Review
-          </button>
-        </form>
-
-        {/* Review List */}
-        <div className="mt-8 ">
-         <h1 className="text-xl font-semibold"> Your review</h1>
-          {reviews?.length > 0 ? (
-            reviews.map((r, i) => (
-              <div key={i} className="border w-[300px] bg-white border-amber-50 p-3 my-2 rounded-md">
-                <p className="font-semibold text-blue-500">{r.user}</p>
-                <p>⭐ {r.rating}</p>
-                <p>{r.comment}</p>
-                <p className="text-xs text-gray-500">
-                  {new Date(r.date).toLocaleString()}
-                </p>
+                <label className="font-semibold">Your Review</label>
+                <textarea
+                  name="comment"
+                  placeholder="Write your feedback..."
+                  className="textarea textarea-bordered"
+                  required
+                />
               </div>
-            ))
-          ) : (
-            <p className="text-gray-500 italic">
-              No reviews yet for this service.
-            </p>
-          )}
-        </div>
+              <button type="submit" className="btn btn-primary">
+                Submit Review
+              </button>
+            </form>
+
+            {/* Review List */}
+            <div className="mt-8 ">
+              <h1 className="text-xl font-semibold"> Your review</h1>
+              {reviews?.length > 0 ? (
+                reviews.map((r, i) => (
+                  <div
+                    key={i}
+                    className="border w-[300px] bg-white border-amber-50 p-3 my-2 rounded-md"
+                  >
+                    <p className="font-semibold text-blue-500">{r.user}</p>
+                    <p>⭐ {r.rating}</p>
+                    <p>{r.comment}</p>
+                    <p className="text-xs text-gray-500">
+                      {new Date(r.date).toLocaleString()}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-500 italic">
+                  No reviews yet for this service.
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-        </div>
       <ToastContainer></ToastContainer>
     </div>
   );

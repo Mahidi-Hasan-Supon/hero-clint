@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
 const AddService = () => {
-  const {users} = use(AuthContext)
+  const { users } = use(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const serviceName = e.target.serviceName.value;
@@ -31,18 +31,21 @@ const AddService = () => {
       providerName: providerName,
       email: email,
     };
-    fetch("http://localhost:3000/services", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(createService),
-    })
+    fetch(
+      "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(createService),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log("data post", data);
-        if(data.insertedId){
-          toast("Add A Service")
+        if (data.insertedId) {
+          toast("Add A Service");
         }
       });
   };

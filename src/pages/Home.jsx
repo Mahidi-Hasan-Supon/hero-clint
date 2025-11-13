@@ -7,10 +7,12 @@ import Testimonals from "../compunents/Testimonals";
 
 const Home = () => {
   const hero = useLoaderData();
-  const heros = hero.result
+  const heros = hero.result;
   const [topRated, setTopRated] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/top-rated")
+    fetch(
+      "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/top-rated"
+    )
       .then((res) => res.json())
       .then((data) => setTopRated(data))
       .catch((err) => console.error("Top rated fetch error:", err));
@@ -22,24 +24,23 @@ const Home = () => {
       <div className="py-10">
         <HeroSlider></HeroSlider>
       </div>
-         
+
       {/* 6 card */}
-    <div className="py-10">
-      <h1 className="md:text-5xl text-2xl font-bold md:text-center md:my-20 my-5">Home <span className="text-orange-400">Repair</span> Services</h1>
+      <div className="py-10">
+        <h1 className="md:text-5xl text-2xl font-bold md:text-center md:my-20 my-5">
+          Home <span className="text-orange-400">Repair</span> Services
+        </h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 ">
-          
-         {
-            heros.map(hero=><HeroCard key={hero._id} hero={hero}></HeroCard>)
-         } 
-
+          {heros.map((hero) => (
+            <HeroCard key={hero._id} hero={hero}></HeroCard>
+          ))}
+        </div>
       </div>
-    </div>
-
 
       {/* Top Rated Services Section */}
       <div className="py-20">
         <h1 className="md:text-4xl text-2xl font-bold md:text-center mb-10">
-           Top Rated <span className="text-orange-400">Services</span>
+          Top Rated <span className="text-orange-400">Services</span>
         </h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
           {topRated.length > 0 ? (
@@ -54,19 +55,22 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* why chose it */}
       <div className="space-y-8 py-10">
-          <span className="text-primary font-semibold text-sm">-Our Services</span>
-          <h1 className="md:text-3xl text-2xl font-bold opacity-80">What We Do For Our <span className="text-orange-400">Customers</span></h1>
-          <span>
-            <ChoseUs></ChoseUs>
-          </span>
+        <span className="text-primary font-semibold text-sm">
+          -Our Services
+        </span>
+        <h1 className="md:text-3xl text-2xl font-bold opacity-80">
+          What We Do For Our <span className="text-orange-400">Customers</span>
+        </h1>
+        <span>
+          <ChoseUs></ChoseUs>
+        </span>
       </div>
 
       {/* 2nd section */}
       <div className="py-20">
-         <Testimonals></Testimonals>
+        <Testimonals></Testimonals>
       </div>
     </div>
   );

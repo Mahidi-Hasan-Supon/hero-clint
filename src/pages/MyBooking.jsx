@@ -7,7 +7,9 @@ const MyBooking = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     if (users?.email) {
-      fetch(`http://localhost:3000/bookings?email=${users.email}`)
+      fetch(
+        `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/bookings?email=${users.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);
@@ -27,9 +29,12 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/bookings/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/bookings/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log("delete", data);
@@ -39,64 +44,67 @@ const MyBooking = () => {
                 text: "Your booking has been cancel.",
                 icon: "success",
               });
-              const remainingBooks = books.filter(book=>book._id !== _id)
-              setBooks(remainingBooks)
+              const remainingBooks = books.filter((book) => book._id !== _id);
+              setBooks(remainingBooks);
             }
           });
       }
     });
   };
   return (
-   <div className="overflow-x-auto md:w-7xl mx-auto py-30">
-      { books.length === 0? 
-       <div>
-        <p className="text-center text-primary font-bold text-3xl py-30">No bookings found.</p>
-       </div>
-       : 
-      <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Email</th>
-            <th>serviceName</th>
-            <th>Booking Date</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* row 4 */}
-          {books.map((book, index) => (
-            <tr key={book._id}>
-              <th>{index + 1}</th>
-              <td>
-                <div className="flex items-center gap-3">
-                  {/* <div className="avatar">
+    <div className="overflow-x-auto md:w-7xl mx-auto py-30">
+      {books.length === 0 ? (
+        <div>
+          <p className="text-center text-primary font-bold text-3xl py-30">
+            No bookings found.
+          </p>
+        </div>
+      ) : (
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>serviceName</th>
+              <th>Booking Date</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 4 */}
+            {books.map((book, index) => (
+              <tr key={book._id}>
+                <th>{index + 1}</th>
+                <td>
+                  <div className="flex items-center gap-3">
+                    {/* <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
                      
                     </div>
                   </div> */}
-                  <div>
-                    <div className="font-bold">{book.user_email}</div>
+                    <div>
+                      <div className="font-bold">{book.user_email}</div>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td>{book.serviceName}</td>
-              <td>{book.date}</td>
-              <td>{book.price}</td>
-              <th>
-                <button
-                  onClick={() => handleCancel(book._id)}
-                  className="btn btn-primary"
-                >
-                  Cancel
-                </button>
-              </th>
-            </tr>
-          ))}
-        </tbody>
-      </table>}
+                </td>
+                <td>{book.serviceName}</td>
+                <td>{book.date}</td>
+                <td>{book.price}</td>
+                <th>
+                  <button
+                    onClick={() => handleCancel(book._id)}
+                    className="btn btn-primary"
+                  >
+                    Cancel
+                  </button>
+                </th>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
