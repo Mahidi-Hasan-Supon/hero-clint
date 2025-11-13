@@ -39,7 +39,7 @@ const UpdateProfile = () => {
     <div className="py-50 flex justify-center items-center">
       <div className="card bg-base-100 w-full max-w-sm  shrink-0 shadow-2xl">
         <div className="card-body gap-5">
-          <h1 className="text-center text-2xl font-bold">
+          <h1 className="text-center text-primary text-2xl font-bold">
             {" "}
             Update Your Profile
           </h1>
@@ -59,13 +59,13 @@ const UpdateProfile = () => {
               placeholder=" Photo-URL"
             />
             <div className="flex gap-2 mt-5">
-              <button type="submit" className="btn btn-neutral w-1/3">
+              <button type="submit" className="btn btn-primary w-1/3">
                 Save
               </button>
               <button
                 type="button"
                 onClick={() => navigate("/profile")}
-                className="btn btn-outline w-1/3"
+                className="btn border-primary text-primary w-1/3"
               >
                 Cancel
               </button>

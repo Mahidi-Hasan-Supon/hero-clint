@@ -9,53 +9,85 @@ import { GiAutoRepair, GiTargetDummy } from "react-icons/gi";
 import { TbBrandBooking } from "react-icons/tb";
 import { MdOutlineAddAlarm } from "react-icons/md";
 const Navber = () => {
-  const { users, setUsers, signOutFunc, } = use(AuthContext);
+  const { users, setUsers, signOutFunc } = use(AuthContext);
   const handleSignOut = () => {
     signOutFunc()
       .then((res) => {
         console.log(res.user);
 
-        toast.success('Sign out successfully')
+        toast.success("Sign out successfully");
       })
       .cath((e) => {
         console.log(e.message);
-        toast.error(e.message)
+        toast.error(e.message);
       });
   };
-    const [theme,setTheme] = useState(localStorage.getItem('theme') || 'light')
-  useEffect(()=>{
-   const html = document.querySelector('html')
-    html.setAttribute('data-theme',theme)
-    localStorage.setItem('theme',theme)
-  },[theme])
-  const handleTheme=(checked)=>{
-   setTheme(checked?'dark':'light')
-   
-  }
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
   const links = (
     <div className="md:flex">
       <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/home"><FaHome></FaHome> Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold" : ""
+          }
+          to="/home"
+        >
+          <FaHome></FaHome> Home
+        </NavLink>
       </li>
       <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services"> <GiAutoRepair></GiAutoRepair> Services</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-primary font-bold" : ""
+          }
+          to="/services"
+        >
+          {" "}
+          <GiAutoRepair></GiAutoRepair> Services
+        </NavLink>
       </li>
-     { users && <div className="md:flex items-center">
-
-        <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/mybookings"><TbBrandBooking></TbBrandBooking> My Bookings</NavLink>
-      </li>
-      <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/addservice"><MdOutlineAddAlarm></MdOutlineAddAlarm> Add Service</NavLink>
-      </li>
-      <li>
-        <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/myservice"><GiTargetDummy></GiTargetDummy> My Services</NavLink>
-      </li>
-
-   
-     </div>  
-      
-     }
+      {users && (
+        <div className="md:flex items-center">
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-primary font-bold" : ""
+              }
+              to="/mybookings"
+            >
+              <TbBrandBooking></TbBrandBooking> My Bookings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-primary font-bold" : ""
+              }
+              to="/addservice"
+            >
+              <MdOutlineAddAlarm></MdOutlineAddAlarm> Add Service
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-primary font-bold" : ""
+              }
+              to="/myservice"
+            >
+              <GiTargetDummy></GiTargetDummy> My Services
+            </NavLink>
+          </li>
+        </div>
+      )}
     </div>
   );
   return (
@@ -83,12 +115,12 @@ const Navber = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-          <div className="flex-none">
-              {links}
-          </div>
+            <div className="flex-none">{links}</div>
           </ul>
         </div>
-        <a className="md:btn btn-ghost text-lg md:text-xl">HouseHold Services</a>
+        <a className="md:btn btn-ghost text-lg md:text-xl">
+          HouseHold <span className="text-primary">Services</span>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -99,13 +131,19 @@ const Navber = () => {
             <details className="dropdown">
               <summary className="btn rounded-4xl m-1">
                 {" "}
-                <img src={users.photoURL} className="h-[40px] w-[40px] rounded-3xl" alt="" />
+                <img
+                  src={users.photoURL}
+                  className="h-[40px] w-[40px] rounded-3xl"
+                  alt=""
+                />
               </summary>
               <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                 <li>
-                  <Link to='/profile'> <CgProfile></CgProfile> Profile</Link>
+                  <Link to="/profile">
+                    {" "}
+                    <CgProfile></CgProfile> Profile
+                  </Link>
                 </li>
-                  
               </ul>
             </details>
           </div>
@@ -113,24 +151,30 @@ const Navber = () => {
           <img src={useImg} alt="" />
         )}
         {users ? (
-   
-
-          <button onClick={handleSignOut} className="btn">
+          <button onClick={handleSignOut} className="btn text-amber-50 bg-primary font-bold">
             SignOut
           </button>
-             
- 
         ) : (
           <div className="flex gap-1 md:gap-3">
-            <Link to="/login" className="btn">
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `btn ${isActive ? "bg-primary text-white font-bold" : ""}`
+              }
+            >
               Login
-            </Link>
-            <Link to="/register" className="btn">
+            </NavLink>
+            <NavLink to="/register" className={({isActive})=>`btn font-bold ${isActive?'bg-primary text-white':''}`}>
               Register
-            </Link>
+            </NavLink>
           </div>
         )}
-        <input onChange={(e)=>handleTheme(e.target.checked)} type="checkbox" value="synthwave" className="toggle theme-controller ml-1" />
+        <input
+          onChange={(e) => handleTheme(e.target.checked)}
+          type="checkbox"
+          value="synthwave"
+          className="toggle theme-controller ml-1"
+        />
       </div>
       <ToastContainer></ToastContainer>
     </div>

@@ -20,8 +20,8 @@ const Profile = () => {
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{users.displayName}</h2>
-        <p className="text-xl font-bold">
+        <h2 className="card-title text-primary">{users.displayName}</h2>
+        <p className="text-xl font-bold text-primary">
           {users.email}
         </p>
         <div className="card-actions">

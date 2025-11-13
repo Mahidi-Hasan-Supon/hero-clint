@@ -10,7 +10,7 @@ const Root = () => {
   return (
     <div>
       <Navber></Navber>
-      <main className="min-h-[calc(100vh-285px)]">
+      <main className="min-h-[calc(100vh-285px)] w-7xl mx-auto bg-[#d2d2d220]">
        { loading
        ?
        <Loading></Loading>

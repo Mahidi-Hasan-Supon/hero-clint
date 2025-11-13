@@ -17,9 +17,9 @@ const Services = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <div className="w-7xl mx-auto my-20">
+    <div className="w-7xl mx-auto py-20">
       <h1 className="text-5xl font-bold text-center my-10">
-        Our All Repair Services
+        Our All Repair <span className="text-blue-600">Services</span>
       </h1>
 
       <div className="flex justify-center mb-10">

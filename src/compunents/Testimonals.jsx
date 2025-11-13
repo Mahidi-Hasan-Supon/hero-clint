@@ -7,7 +7,7 @@ const Testimonals = () => {
         <h1 className="text-primary">-TESTIMONIALS </h1>
         <h1 className="text-3xl opacity-80 font-bold">
           {" "}
-          What Our Customers <br /> Say About Our Service
+          What Our <span className="text-orange-400">Customers</span> <br /> Say About Our Service
         </h1>
         <h1></h1>
         <p className="font-semibold">
@@ -16,7 +16,7 @@ const Testimonals = () => {
         </p>
       </div>
       <div>
-        <div className="card w-[400px] bg-base-100 card-xs shadow-sm items-center">
+        <div className="card w-[400px] bg-base-100 hover:shadow-2xl card-xs shadow-sm items-center">
           <div className="text-center gap-5 py-5">
             <img
               className="w-[50px] h-[50px] ml-45 rounded-4xl"
