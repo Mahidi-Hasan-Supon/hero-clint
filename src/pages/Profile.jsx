@@ -24,6 +24,12 @@ const Profile = () => {
         <p className="text-xl font-bold text-primary">
           {users.email}
         </p>
+           <p className="text-sm text-gray-500">
+            Last Login:{" "}
+            {users.metadata?.lastSignInTime
+              ? new Date(users.metadata.lastSignInTime).toLocaleString()
+              : "N/A"}
+          </p>
         <div className="card-actions">
           <Link to='/updateprofile' className="btn btn-primary w-[200px]">Update Profile</Link>
         </div>
