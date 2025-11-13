@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import useImg from "../assets/user 1.png";
@@ -19,6 +19,16 @@ const Navber = () => {
         console.log(e.message);
       });
   };
+    const [theme,setTheme] = useState(localStorage.getItem('theme') || 'light')
+  useEffect(()=>{
+   const html = document.querySelector('html')
+    html.setAttribute('data-theme',theme)
+    localStorage.setItem('theme',theme)
+  },[theme])
+  const handleTheme=(checked)=>{
+   setTheme(checked?'dark':'light')
+   
+  }
   const links = (
     <div className="md:flex">
       <li>
@@ -27,7 +37,8 @@ const Navber = () => {
       <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/services"> <GiAutoRepair></GiAutoRepair> Services</NavLink>
       </li>
-     { users && <div className="md:flex">
+     { users && <div className="md:flex items-center">
+
         <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/mybookings"><TbBrandBooking></TbBrandBooking> My Bookings</NavLink>
       </li>
@@ -37,7 +48,11 @@ const Navber = () => {
       <li>
         <NavLink className={({isActive})=>isActive?'text-primary font-bold':''} to="/myservice"><GiTargetDummy></GiTargetDummy> My Services</NavLink>
       </li>
-     </div> }
+
+      <input onChange={(e)=>handleTheme(e.target.checked)} type="checkbox" value="synthwave" className="toggle theme-controller" />
+     </div>  
+      
+     }
     </div>
   );
   return (
@@ -87,6 +102,7 @@ const Navber = () => {
                 <li>
                   <Link to='/profile'> <CgProfile></CgProfile> Profile</Link>
                 </li>
+                  
               </ul>
             </details>
           </div>

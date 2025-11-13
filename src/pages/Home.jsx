@@ -32,7 +32,7 @@ const Home = () => {
       {/* why chose it */}
       <div className="space-y-8 my-10">
           <span className="text-primary font-semibold text-sm">-Our Services</span>
-          <h1 className="text-3xl font-bold opacity-80">What We Do For Our Customers</h1>
+          <h1 className="md:text-3xl text-2xl font-bold opacity-80">What We Do For Our Customers</h1>
           <span>
             <ChoseUs></ChoseUs>
           </span>

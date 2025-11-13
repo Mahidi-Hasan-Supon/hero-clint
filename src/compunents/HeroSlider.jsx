@@ -39,19 +39,19 @@ const HeroSlider = () => {
 
   
   return (
-    <div className="w-full h-[80vh]">
+    <div className="md:w-full w-[400px] md:h-[80vh] h-[60vh]">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         navigation
         loop={true}
-        className="mySwiper w-full h-full"
+        className="mySwiper w-[400px] md:w-full h-full"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div
-              className="relative w-full h-full flex items-center justify-center bg-cover bg-center"
+              className="relative md:w-full w-[400px] h-full flex items-center justify-center bg-cover bg-center"
                style={{ backgroundImage: `url('${slide.imageURL}')` }}
             >
               {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div> */}
