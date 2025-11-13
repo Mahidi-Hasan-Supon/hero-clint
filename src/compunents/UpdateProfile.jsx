@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import Loading from "./Loading";
 
 const UpdateProfile = () => {
-  const { users, setUser, updateProfileFunc,loading } = use(AuthContext);
+  const { users, setUser, updateProfileFunc,loading,setLoading } = use(AuthContext);
   const navigate = useNavigate();
   if(loading){
       return <Loading></Loading>
@@ -25,6 +25,7 @@ const UpdateProfile = () => {
     }
     updateProfileFunc(displayName, photoURL)
       .then(() => {
+        setLoading(false)
         toast.success('"Profile updated successfully!"');
         setTimeout(() => {
           navigate("/profile");
