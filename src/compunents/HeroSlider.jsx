@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const sliderPromise = fetch(
-  "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/slider-home"
+  "https://home-hero-server-olive.vercel.app/slider-home"
 ).then((res) => res.json());
 const HeroSlider = () => {
   const sliders = use(sliderPromise);

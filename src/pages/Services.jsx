@@ -11,9 +11,7 @@ const Services = () => {
   console.log(services);
   const handleSort = (order) => {
     setSort(order);
-    fetch(
-      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services?sort=${order}`
-    )
+    fetch(`https://home-hero-server-olive.vercel.app/services?sort=${order}`)
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.error(err));

@@ -8,7 +8,7 @@ const MyBooking = () => {
   useEffect(() => {
     if (users?.email) {
       fetch(
-        `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/bookings?email=${users.email}`
+        `https://home-hero-server-olive.vercel.app/bookings?email=${users.email}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -29,12 +29,9 @@ const MyBooking = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/bookings/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://home-hero-server-olive.vercel.app/bookings/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log("delete", data);

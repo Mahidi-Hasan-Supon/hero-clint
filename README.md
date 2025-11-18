@@ -1,16 +1,123 @@
-# React + Vite
+🚀 Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React + Vite–based frontend project where users can explore services, view details, register, login, and interact with dynamic content. The project uses modern React tools, components, and routing to deliver a smooth user experience.
 
-Currently, two official plugins are available:
+🛠️ Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React (Vite)
 
-## React Compiler
+React Router
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Tailwind CSS
 
-## Expanding the ESLint configuration
+Firebase Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Context API
+
+React Hot Toast / SweetAlert
+
+Fetch API for Backend Integration
+
+Netlify Hosting
+
+📌 Features
+✅ User Authentication
+
+Email & Password Login
+
+Google Auth (Popup)
+
+Protected Routes
+
+Context API for global auth state
+
+✅ Services Page
+
+Dynamic Services List
+
+Each service has:
+
+Title
+
+Description
+
+Category
+
+Price
+
+Provider Info
+
+Image
+
+✅ Service Details Page
+
+Full details of selected service
+
+“Book Now” or related action button
+
+✅ My Services
+
+Shows only user-added / booked services
+
+Update & Delete functionality
+
+✅ Loading & Error Handling
+
+Custom Loading Spinner
+
+Custom Error Page (404)
+
+Toast notifications for actions
+
+📁 Folder Structure
+src/
+│── components/
+│── pages/
+│── context/
+│── hooks/
+│── layouts/
+│── routes/
+│── assets/
+└── main.jsx
+
+📦 Installation & Setup
+1️⃣ Clone the project
+git clone https://github.com/Mahidi-Hasan-Supon/hero-clint
+
+2️⃣ Navigate inside folder
+cd hero-clint
+
+3️⃣ Install dependencies
+npm install
+
+4️⃣ Run the project
+npm run dev
+
+🔥 Build for Production
+npm run build
+
+🌐 Deployment
+
+Project is deployed on Netlify.
+To redeploy, run:
+
+npm run build
+
+
+And upload the dist/ folder to Netlify
+or connect the GitHub repo directly.
+
+📞 Contact
+
+For support or collaboration:
+
+Mahidi Hasan Supon
+MERN Stack Developer
+GitHub: https://github.com/Mahidi-Hasan-Supon
+
+If you want, I can also make:
+✔ Professional project description
+✔ Beautiful GitHub profile README
+✔ API documentation (backend er jonno)
+
+Just tell me!

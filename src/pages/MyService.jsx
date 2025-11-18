@@ -9,7 +9,7 @@ const MyService = () => {
   useEffect(() => {
     if (users?.email) {
       fetch(
-        `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/service?email=${users.email}`
+        `https://home-hero-server-olive.vercel.app/service?email=${users.email}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -21,12 +21,9 @@ const MyService = () => {
   }, [users?.email]);
   const handleDelete = (id) => {
     console.log("delete");
-    fetch(
-      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/service/${id}`,
-      {
-        method: "DELETE",
-      }
-    )
+    fetch(`https://home-hero-server-olive.vercel.app/service/${id}`, {
+      method: "DELETE",
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

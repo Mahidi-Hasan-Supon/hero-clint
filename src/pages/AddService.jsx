@@ -31,16 +31,13 @@ const AddService = () => {
       providerName: providerName,
       email: email,
     };
-    fetch(
-      "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(createService),
-      }
-    )
+    fetch("https://home-hero-server-olive.vercel.app/services", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createService),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log("data post", data);

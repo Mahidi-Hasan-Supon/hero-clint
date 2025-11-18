@@ -10,9 +10,7 @@ const Home = () => {
   const heros = hero.result;
   const [topRated, setTopRated] = useState([]);
   useEffect(() => {
-    fetch(
-      "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/top-rated"
-    )
+    fetch("https://home-hero-server-olive.vercel.app/top-rated")
       .then((res) => res.json())
       .then((data) => setTopRated(data))
       .catch((err) => console.error("Top rated fetch error:", err));

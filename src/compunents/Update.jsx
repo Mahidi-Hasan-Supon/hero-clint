@@ -12,7 +12,7 @@ const Update = () => {
   console.log(data);
   console.log(id);
   //   useEffect(() => {
-  //         fetch('https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/service')
+  //         fetch('https://home-hero-server-olive.vercel.app/service')
   //       .then((res) => res.json())
   //       .then((data) => {
   //         console.log(data);
@@ -47,16 +47,13 @@ const Update = () => {
       providerName: providerName,
       email: email,
     };
-    fetch(
-      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/service/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(createUpdate),
-      }
-    )
+    fetch(`https://home-hero-server-olive.vercel.app/service/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(createUpdate),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log("data post", data);

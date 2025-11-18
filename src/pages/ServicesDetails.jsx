@@ -30,16 +30,13 @@ const ServicesDetails = () => {
       price: detail.price,
       serviceName: detail.serviceName,
     };
-    fetch(
-      "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/books",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(bookingUser),
-      }
-    )
+    fetch("https://home-hero-server-olive.vercel.app/books", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(bookingUser),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
@@ -52,7 +49,7 @@ const ServicesDetails = () => {
 
   useEffect(() => {
     fetch(
-      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services/${serviceId}/reviews`
+      `https://home-hero-server-olive.vercel.app/services/${serviceId}/reviews`
     )
       .then((res) => res.json())
       .then((data) => setReviews(data));
@@ -69,7 +66,7 @@ const ServicesDetails = () => {
     };
 
     fetch(
-      `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services/${serviceId}/review`,
+      `https://home-hero-server-olive.vercel.app/services/${serviceId}/review`,
       {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -82,7 +79,7 @@ const ServicesDetails = () => {
         e.target.reset();
         // reload reviews
         fetch(
-          `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services/${serviceId}/reviews`
+          `https://home-hero-server-olive.vercel.app/services/${serviceId}/reviews`
         )
           .then((res) => res.json())
           .then((data) => setReviews(data));

@@ -32,31 +32,25 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: () =>
-          fetch(
-            "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/latest-home"
-          ),
+          fetch("https://home-hero-server-olive.vercel.app/latest-home"),
       },
       {
         path: "/home",
         Component: Home,
         loader: () =>
-          fetch(
-            "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/latest-home"
-          ),
+          fetch("https://home-hero-server-olive.vercel.app/latest-home"),
       },
       {
         path: "services",
         Component: Services,
         loader: () =>
-          fetch(
-            "https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/services"
-          ),
+          fetch("https://home-hero-server-olive.vercel.app/services"),
       },
       {
         path: "servicesdetails/:id",
         loader: ({ params }) =>
           fetch(
-            `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/servicesdetails/${params.id}`
+            `https://home-hero-server-olive.vercel.app/servicesdetails/${params.id}`
           ),
         element: (
           <PrivateRoute>
@@ -93,7 +87,7 @@ const router = createBrowserRouter([
         Component: Update,
         loader: ({ params }) =>
           fetch(
-            `https://home-hero-server-6j7m3wpha-mahidi-hasan-supons-projects.vercel.app/servicesdetails/${params.id}`
+            `https://home-hero-server-olive.vercel.app/servicesdetails/${params.id}`
           ),
       },
       {
